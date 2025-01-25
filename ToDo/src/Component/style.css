@@ -1,0 +1,57 @@
+.container {
+  box-sizing: border-box; 
+  text-align: center;
+  font-family:"Playwrite IN", serif;
+}
+
+h1{
+  color: black;
+}
+.btn {
+  font-family: "Playwrite IN", serif;
+}
+input{
+  float: left;
+  font-size: 24px;
+  background-color: azure;
+  color: black;
+  text-align: center;
+  border: 2px solid black;
+  font-family: "Playwrite IN", serif;
+}
+.btn{
+  font-size: 30px;
+  background-color: rgb(61, 228, 0);
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+ul{
+  text-align: center;
+}
+
+li{
+  font-size: 24px;
+  color: black;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.delete-btn{
+  float: right;
+  font-size: 20px;
+  background-color: red;
+  border: 3px dotted black;
+  font-family: "Playwrite IN", serif;
+}
+.edit-btn{
+  margin-left: 30px;
+  font-size: 18px;
+  background-color: blueviolet;
+  border: 2px solid black;
+  font-family: "Playwrite IN", serif;
+
+}
+
+
+
