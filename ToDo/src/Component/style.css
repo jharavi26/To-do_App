@@ -2,10 +2,17 @@
   box-sizing: border-box; 
   text-align: center;
   font-family:"Playwrite IN", serif;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
 }
 
 h1{
   color: black;
+  text-align: center;
 }
 .btn {
   font-family: "Playwrite IN", serif;
@@ -20,38 +27,51 @@ input{
   font-family: "Playwrite IN", serif;
 }
 .btn{
-  font-size: 30px;
+  font-size: 24px;
   background-color: rgb(61, 228, 0);
   color: black;
   border: 2px solid black;
   border-radius: 5px;
 }
-ul{
-  text-align: center;
+ol{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
 }
+
 
 li{
   font-size: 24px;
   color: black;
-  text-align: center;
   text-decoration: underline;
+  width: 30%;
 }
 
 .delete-btn{
   float: right;
-  font-size: 20px;
+  font-size: 18px;
   background-color: red;
-  border: 3px dotted black;
+  border: 3px solid black;
   font-family: "Playwrite IN", serif;
 }
 .edit-btn{
-  margin-left: 30px;
   font-size: 18px;
   background-color: blueviolet;
   border: 2px solid black;
   font-family: "Playwrite IN", serif;
-
+}
+.alignment{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
+.li-text{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
 
 
