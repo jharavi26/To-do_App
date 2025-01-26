@@ -30,26 +30,37 @@ function TodoItem() {
     setTodo(removeItems);
   }
 
-  const editTask = ()=>{
-    setEditing(true);
-  }
-
 
   return (
     <div className='todo'>
-    <div className='container'>
+   
        <h1>To-Do Application</h1>
+       <div className='container'>
        <input type='text' placeholder='Enter a Task' onChange={handleChange} value = {inputValue}></input>
        <button className='btn' onClick={Addtodo}>Add</button>
+       </div>
       <ol>
-        {
+        
+    
+          {
           todo.map((item, index)=>(
-            <li key = {index} >{item} <button className='edit-btn' onClick={editTask}>Edit</button><button onClick={()=>deleteTask(index)} className='delete-btn'>Delete</button></li>
+            <>
+            <div className='li-text'>
+            <li key = {index} >{item} </li>
+            <div className='alignment'>
+            <button className='edit-btn' onClick={(e)=>editTask(index, e.target.value)}>Edit</button>
+            <button onClick={()=>deleteTask(index)} className='delete-btn'>Delete</button>
+            </div>
+            </div>
+            </>
           ))
         }
+        
+        
+        
       </ol>
       
-    </div>
+    
     </div>
   )
 }
