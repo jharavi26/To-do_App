@@ -74,4 +74,8 @@ li{
   gap: 30px;
 }
 
+.item {
+  text-decoration: line-through;
+}
+
 

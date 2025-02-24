@@ -9,6 +9,9 @@ function TodoItem() {
   })
 
   const [inputValue, setInputValue] = useState("");
+  const [isEdit , setIsEdit] = useState(false);
+  const [editValue, setEditValue] = useState("");
+
 
 
   const inputRef = useRef(null);
@@ -22,49 +25,58 @@ function TodoItem() {
   }
 
   const Addtodo = ()=>{
+    if(isEdit){
+      const index = todo.indexOf(editValue);
+      const updateItem = [...todo];
+      updateItem.splice(index , 1 , inputValue);
+      setTodo(updateItem)
+    }
+    else{
     setTodo([...todo, inputValue]);
+    }
+    setIsEdit(false);
     setInputValue("")
   }
 
   const deleteTask = (del_index)=>{
-    const removeItems = todo.filter((item, index)=>{
-     return  index !== del_index;
-    });
+    const removeItems = todo.filter((item, index)=>index !== del_index);
     setTodo(removeItems);
   }
 
-  function editTask(id){
-    const text = todo.filter((item, index) => index == id )
+  function editTask(item){
+    setIsEdit(true);
+    setInputValue(item);
     inputRef.current.focus();
-    setInputValue(text[0]);
-
+    setEditValue(item)
   }
 
- 
+  const handleKeyDown = (e)=>{
+    if(e.key === "Enter") Addtodo();
+  }
+
 
   return (
     <div className='todo'>
    
        <h1>To-Do Application</h1>
        <div className='container'>
-       <input type='text' placeholder='Enter a Task' onChange={handleChange} value = {inputValue} ref = {inputRef} ></input>
-       <button className='btn' onClick={Addtodo}>Add</button>
+       <input type='text' placeholder='Enter a Task' onChange={handleChange} value = {inputValue} ref = {inputRef} onKeyDown={handleKeyDown} ></input>
+
+       <button className='btn' onClick={Addtodo}>Add</button> 
+
        </div>
       <ol>
           {
           todo.map((item, index)=>(
-            <>
-            <div className='li-text'>
-            <li key = {index} >{item} </li>
+            <div key = {index} className='li-text'>
+            <li >{item} </li>
 
             <div className='alignment'>
 
-            <button className='edit-btn' onClick={()=>editTask(index)}>Edit</button>
+            <button className='edit-btn' onClick={()=>editTask(item)}>Edit</button>
             <button onClick={()=>deleteTask(index)} className='delete-btn'>Delete</button>
             </div>
             </div>
-            
-            </>
           ))
         }    
         
